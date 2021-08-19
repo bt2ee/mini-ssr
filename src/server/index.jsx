@@ -4,6 +4,7 @@ import { renderToString } from "react-dom/server"; //引入renderToString方法
 import Home from "./Home.js";
 
 const app = express();
+app.use(express.static('public'));
 const content = renderToString(<Home />);
 
 app.get("/", (req, res) =>

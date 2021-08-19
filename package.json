@@ -4,8 +4,10 @@
   "description": "mini-ssr",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=development webpack -w --config webpack.server.js",
-    "start": "nodemon src/index.js"
+    "dev": "npm-run-all--parallel dev:**",
+    "dev:build": "NODE_ENV=development webpack -w --config webpack.server.js",
+    "dev:build:client": "NODE_ENV=development webpack -w --config webpack.client.js",
+    "dev:start": "nodemon build/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "express": "^4.17.1",
     "nodemon": "^2.0.12",
+    "npm-run-all": "^4.1.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "webpack": "^5.50.0",
